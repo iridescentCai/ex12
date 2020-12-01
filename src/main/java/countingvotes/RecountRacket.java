@@ -11,8 +11,19 @@ public class RecountRacket {
      * @return
      */
     public static long countingTime(long numVotes, List<Friend> friendsList) {
-        // TODO: Implement this method
-        return -1;
+        long time = 0;
+        int peopleSize = 1;
+        while (numVotes > 0) {
+            time++;
+            for (Friend friend : friendsList) {
+                if (friend.startTime <= time && friend.endTime >= time) {
+                    peopleSize++;
+                }
+            }
+            numVotes = numVotes - peopleSize;
+            peopleSize = 1;
+        }
+        return time;
     }
 
     /**
