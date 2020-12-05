@@ -1,12 +1,21 @@
 package countingvotes;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class RecountRacketTest1 {
+
+    /* the timeout interval per test is 60 seconds */
+    private static int TIMEOUT = 60;
+
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(TIMEOUT);
 
     @Test
     public void test_0_1() {
